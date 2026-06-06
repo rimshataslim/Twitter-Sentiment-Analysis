@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Twitter Sentiment Analysis</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>📊 Twitter Sentiment Analyzer</h1>
+
+    <p class="subtitle">
+        AI-powered sentiment prediction using Machine Learning
+    </p>
+
+    <form method="POST">
+
+        <textarea
+            name="tweet"
+            placeholder="Enter a tweet here..."
+            required></textarea>
+
+        <br>
+
+        <button type="submit">
+            Analyze Sentiment
+        </button>
+
+    </form>
+
+    {% if prediction %}
+
+        {% if prediction == "Positive" %}
+            <div class="result positive">
+                😊 Positive Sentiment
+            </div>
+        {% else %}
+            <div class="result negative">
+                😔 Negative Sentiment
+            </div>
+        {% endif %}
+
+    {% endif %}
+
+    <div class="footer">
+        Built with Flask • Scikit-Learn • TF-IDF • Logistic Regression
+    </div>
+
+</div>
+
+</body>
+</html>
